@@ -35,7 +35,7 @@ export default class Slide {
 
         } else {
             this.dist.startX = event.changedTouches[0].clientX;
-            moveType = 'touchmove';;
+            moveType = 'touchmove';
         }
         this.wrapper.addEventListener(moveType, this.onMove);
         this.transition(false);
@@ -55,7 +55,7 @@ export default class Slide {
         this.changeSlideOnEnd();
     }
 
-    changeSlideOnEnd(index) {
+    changeSlideOnEnd() {
         if (this.dist.movement > 120 && this.index.next !== undefined) {
             this.activeNextSlide();
         } else if (this.dist.movement < -120 && this.index.prev !== undefined) {
@@ -83,10 +83,7 @@ export default class Slide {
     slidesConfig() {
         this.slideArray = [...this.slide.children].map((element) => {
             const position = this.slidePosition(element);
-            return {
-                position,
-                element
-            }
+            return { position, element };
         });
     }
 
